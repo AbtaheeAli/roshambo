@@ -61,8 +61,14 @@ article {
   justify-content: center;
   align-items: center;
 }
+
 h2 {
   color: #03045e;
+}
+
+.endButton button {
+  background-color: red;
+  color: black;
 }
 
 fieldset {
