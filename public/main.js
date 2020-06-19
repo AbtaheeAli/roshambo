@@ -8,8 +8,11 @@ function handlePlayerOneRockSelection(event) {
   choice.src = 'https://rpsls.net/images/rock.png'
   choice.width = '200'
   choice.height = '200'
-  // const addImg = document.querySelector('.figureOne')
-  document.body.appendChild(choice)
+  const addImg = document.querySelector('.playerOneChoice figure')
+  addImg.appendChild(choice)
+  if (choice === true) {
+    document.getElementById('.blank').src = ''
+  }
 }
 
 const main = () => {
