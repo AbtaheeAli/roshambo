@@ -18,7 +18,17 @@ function handlePlayerOneScissorSelection(event) {
     'https://rpsls.net/images/scissors.png'
 }
 
-function updateButton(event) {
+function handlePlayerOneSpockSelection(event) {
+  document.querySelector('.playerOneChoice .blankImage').src =
+    'https://stt.wiki/w/images/thumb/b/b7/Commander_Spock_Head.png/180px-Commander_Spock_Head.png'
+}
+
+function handlePlayerOneLizardSelection(event) {
+  document.querySelector('.playerOneChoice .blankImage').src =
+    'https://rpsls.net/images/lizard.png'
+}
+
+function endButton(event) {
   const playerOneHidden = document.querySelector('.playerOneChoice')
   playerOneHidden.style.display = 'none'
 }
@@ -33,7 +43,13 @@ const main = () => {
   const playerOneScissors = document.querySelector('.playerOneChoice .scissors')
   playerOneScissors.addEventListener('click', handlePlayerOneScissorSelection)
 
+  const playerOneSpock = document.querySelector('.playerOneChoice .spock')
+  playerOneSpock.addEventListener('click', handlePlayerOneSpockSelection)
+
+  const playerOneLizard = document.querySelector('.playerOneChoice .lizard')
+  playerOneLizard.addEventListener('click', handlePlayerOneLizardSelection)
+
   const button = document.querySelector('.endButton button')
-  button.addEventListener('click', updateButton)
+  button.addEventListener('click', endButton)
 }
 document.addEventListener('DOMContentLoaded', main)
