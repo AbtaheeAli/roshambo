@@ -13,6 +13,11 @@ function handlePlayerOnePaperSelection(event) {
     'https://rpsls.net/images/paper.png'
 }
 
+function handlePlayerOneScissorSelection(event) {
+  document.querySelector('.playerOneChoice .blankImage').src =
+    'https://rpsls.net/images/scissors.png'
+}
+
 function updateButton(event) {
   const playerOneHidden = document.querySelector('.playerOneChoice')
   playerOneHidden.style.display = 'none'
@@ -24,6 +29,9 @@ const main = () => {
 
   const playerOnePaper = document.querySelector('.playerOneChoice .paper')
   playerOnePaper.addEventListener('click', handlePlayerOnePaperSelection)
+
+  const playerOneScissors = document.querySelector('.playerOneChoice .scissors')
+  playerOneScissors.addEventListener('click', handlePlayerOneScissorSelection)
 
   const button = document.querySelector('.endButton button')
   button.addEventListener('click', updateButton)
