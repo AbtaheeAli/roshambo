@@ -12,11 +12,23 @@ body {
 }
 
 header {
-  text-align: center;
-  height: 4rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(blue, purple);
+  border-radius: 0 0 50% 50%;
+}
+
+header .content h1 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 3rem;
 }
 
 .scoreboard {
+  margin-top: 3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -27,4 +39,16 @@ header {
 
 .player2 {
   padding-right: 2rem;
+}
+
+.playerOne {
+  display: flex;
+  padding-top: 10rem;
+}
+
+.playerTwo {
+  display: flex;
+  padding-left: 60rem;
+  padding-bottom: 20rem;
+  align-content: center;
 }
