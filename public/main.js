@@ -54,18 +54,18 @@ function handlePlayerTwoScissorSelection(event) {
 function handlePlayerTwoSpockSelection(event) {
   document.querySelector('.playerTwoCard .blankImage').src =
     'https://stt.wiki/w/images/thumb/b/b7/Commander_Spock_Head.png/180px-Commander_Spock_Head.png'
-  playerOneChoice = 'spock'
+  playerTwoChoice = 'spock'
 }
 
 function handlePlayerTwoLizardSelection(event) {
   document.querySelector('.playerTwoCard .blankImage').src =
     'https://rpsls.net/images/lizard.png'
-  playerOneChoice = 'lizard'
+  playerTwoChoice = 'lizard'
 }
 
 function handleEndButtonPlayerOne(event) {
   if (playerOneChoice === '') {
-    const endLabel = document.querySelector('.gameEndLabel')
+    const endLabel = document.querySelector('.label')
     endLabel.textContent = 'You must pick before ending turn!'
     return
   }
@@ -86,13 +86,13 @@ function handleEndButtonPlayerTwo(event) {
   gameButtons.style.justifyContent = 'space-around'
 
   if (playerTwoChoice === '') {
-    const endLabel = document.querySelector('.gameEndLabel')
+    const endLabel = document.querySelector('.label')
     endLabel.textContent = 'You must pick before ending turn!'
     return
   }
 
   if (playerOneChoice === playerTwoChoice) {
-    const draw = document.querySelector('.letsPlay h2')
+    const draw = document.querySelector('.label')
     draw.textContent = 'It is a draw!'
     return
   }
@@ -112,13 +112,13 @@ function handleEndButtonPlayerTwo(event) {
     const playerOneWin = document.querySelector('.playerOneScore')
     playerOne++
     playerOneWin.textContent = `${playerOne}`
-    const displayWinner = document.querySelector('.letsPlay h2')
+    const displayWinner = document.querySelector('.label')
     displayWinner.textContent = 'Player One Wins! Go Again'
   } else {
     const playerTwoWin = document.querySelector('.playerTwoScore')
     playerTwo++
     playerTwoWin.textContent = `${playerTwo}`
-    const displayWinner = document.querySelector('.letsPlay h2')
+    const displayWinner = document.querySelector('.label')
     displayWinner.textContent = 'Player Two Wins! Go Again'
   }
 }
@@ -126,6 +126,9 @@ function handleEndButtonPlayerTwo(event) {
 function handleStartTheGame(event) {
   const playerTwoCard = document.querySelector(' .playerTwoCard')
   playerTwoCard.style.display = 'none'
+
+  const startGame = document.querySelector('.label')
+  startGame.textContent = 'Game On!'
 
   const startGameButton = document.querySelector('.gameButtons')
   startGameButton.style.display = 'none'
@@ -165,6 +168,12 @@ const main = () => {
 
   const playerTwoScissor = document.querySelector('.playerTwoCard .scissor')
   playerTwoScissor.addEventListener('click', handlePlayerTwoScissorSelection)
+
+  const playerTwoSpock = document.querySelector('.playerTwoCard .spock')
+  playerTwoSpock.addEventListener('click', handlePlayerTwoSpockSelection)
+
+  const playerTwoLizard = document.querySelector('.playerTwoCard .lizard')
+  playerTwoLizard.addEventListener('click', handlePlayerTwoLizardSelection)
 
   const buttonPlayerOne = document.querySelector('.endButtonPlayerOne button')
   buttonPlayerOne.addEventListener('click', handleEndButtonPlayerOne)
