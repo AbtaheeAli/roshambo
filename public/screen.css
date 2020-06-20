@@ -68,12 +68,12 @@ h2 {
   color: #03045e;
 }
 
-.endButton button {
+.endButtonPlayerOne button {
   background-color: red;
   color: black;
 }
 
-.blankButton button {
+.endButtonPlayerTwo button {
   color: #03045e;
 }
 

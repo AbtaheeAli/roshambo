@@ -63,12 +63,25 @@ function endButtonPlayerTwo(event) {
   if (playerOneChoice === playerTwoChoice) {
     const draw = document.querySelector('.letsPlay h2')
     draw.textContent = 'It is a draw!'
+    return
   }
 
-  if (playerOneChoice === 'rock' && playerTwoChoice === 'scissor') {
+  if (
+    (playerOneChoice === 'rock' && playerTwoChoice === 'scissor') ||
+    (playerOneChoice === 'scissor' && playerTwoChoice === 'paper') ||
+    (playerOneChoice === 'paper' && playerTwoChoice === 'rock')
+  ) {
     const playerOneWin = document.querySelector('.playerOneScore')
     playerOne++
     playerOneWin.textContent = `${playerOne}`
+    const displayWinner = document.querySelector('.letsPlay h2')
+    displayWinner.textContent = 'Player One Wins! Go Again'
+  } else {
+    const playerTwoWin = document.querySelector('.playerTwoScore')
+    playerTwo++
+    playerTwoWin.textContent = `${playerTwo}`
+    const displayWinner = document.querySelector('.letsPlay h2')
+    displayWinner.textContent = 'Player Two Wins! Go Again'
   }
 }
 
@@ -97,12 +110,10 @@ const main = () => {
   const playerTwoScissor = document.querySelector('.playerTwoCard .scissor')
   playerTwoScissor.addEventListener('click', handlePlayerTwoScissorSelection)
 
-  const buttonPlayerOne = document.querySelector('.playerOneCard .endButton')
+  const buttonPlayerOne = document.querySelector('.endButtonPlayerOne button')
   buttonPlayerOne.addEventListener('click', endButtonPlayerOne)
 
-  const buttonPlayerTwo = document.querySelector(
-    '.playerTwoCard .endButtonPlayerTwo'
-  )
+  const buttonPlayerTwo = document.querySelector('.endButtonPlayerTwo button')
   buttonPlayerTwo.addEventListener('click', endButtonPlayerTwo)
 }
 document.addEventListener('DOMContentLoaded', main)
