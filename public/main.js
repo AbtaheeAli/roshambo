@@ -93,22 +93,20 @@ function handleEndButtonPlayerTwo(event) {
 }
 
 function startTheGame(event) {
-  const playerOneCard = document.querySelector('.playerTwoCard')
-  playerOneCard.style.display = 'none'
+  const playerTwoCard = document.querySelector('.playerTwoCard')
+  playerTwoCard.style.display = 'none'
 
   const displayGame = document.querySelector('.letsPlay h2')
   displayGame.textContent = 'Rock, Paper... JUST GO!'
 }
 
-function endGame(event) {
-  const valueCountTeam1 = document.querySelector('.playerOneScore')
-  const valueCountTeam2 = document.querySelector('.TwoScore')
-  const header = document.querySelector('h1')
-  header.textContent = 'My Score Board'
-  teamOne = 0
-  teamTwo = 0
-  valueCountTeam1.textContent = `${teamOne}`
-  valueCountTeam2.textContent = `${teamTwo}`
+function endTheGame(event) {
+  const valueCountPlayer1 = document.querySelector('.playerOneScore')
+  const valueCountPlayer2 = document.querySelector('.playerTwoScore')
+  playerOne = 0
+  playerTwo = 0
+  valueCountPlayer1.textContent = `${playerOne}`
+  valueCountPlayer2.textContent = `${playerTwo}`
 }
 
 const main = () => {
