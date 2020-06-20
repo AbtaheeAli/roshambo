@@ -43,9 +43,24 @@ function handlePlayerTwoScissorSelection(event) {
     'https://rpsls.net/images/scissors.png'
 }
 
-function endButton(event) {
+function endButtonPlayerOne(event) {
   const playerOneHidden = document.querySelector('.playerOneChoice')
   playerOneHidden.style.display = 'none'
+}
+
+function endButtonPlayerTwo(event) {
+  if (playerOneChoice === playerTwoChoice) {
+    const changeLetsPlay = document.querySelector('.letsPlay h2')
+    changeLetsPlay.textContent = 'Draw'
+  }
+
+  if (playerOneChoice === 'rock' && playerTwoChoice === 'scissor') {
+      const playerOneWin = document.querySelector(.player)
+    }
+    else if (p1 == 'scissors' && p2 == 'paper') return 'Player 1 won!'
+    else if (p1 == 'paper' && p2 == 'rock') return 'Player 1 won!'
+    else return 'Player 2 won!'
+  }
 }
 
 const main = () => {
@@ -73,7 +88,10 @@ const main = () => {
   const playerTwoScissor = document.querySelector('.playerTwoChoice .scissor')
   playerTwoScissor.addEventListener('click', handlePlayerTwoScissorSelection)
 
-  const button = document.querySelector('.endButton button')
-  button.addEventListener('click', endButton)
+  const buttonPlayerOne = document.querySelector('.endButton button')
+  buttonPlayerOne.addEventListener('click', endButtonPlayerOne)
+
+  const buttonPlayerTwo = document.querySelector('.endButtonPlayerTwo button')
+  buttonPlayerTwo.addEventListener('click', endButtonPlayerTwo)
 }
 document.addEventListener('DOMContentLoaded', main)
