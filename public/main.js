@@ -51,10 +51,22 @@ function handlePlayerTwoScissorSelection(event) {
   playerTwoChoice = 'scissor'
 }
 
+function handlePlayerTwoSpockSelection(event) {
+  document.querySelector('.playerTwoCard .blankImage').src =
+    'https://stt.wiki/w/images/thumb/b/b7/Commander_Spock_Head.png/180px-Commander_Spock_Head.png'
+  playerOneChoice = 'spock'
+}
+
+function handlePlayerTwoLizardSelection(event) {
+  document.querySelector('.playerTwoCard .blankImage').src =
+    'https://rpsls.net/images/lizard.png'
+  playerOneChoice = 'lizard'
+}
+
 function handleEndButtonPlayerOne(event) {
   if (playerOneChoice === '') {
     const endLabel = document.querySelector('.gameEndLabel')
-    endLabel.textContent = 'Please select an option before ending turn!'
+    endLabel.textContent = 'You must pick before ending turn!'
     return
   }
 
@@ -66,18 +78,18 @@ function handleEndButtonPlayerOne(event) {
 }
 
 function handleEndButtonPlayerTwo(event) {
-  if (playerTwoChoice === '') {
-    const endLabel = document.querySelector('.gameEndLabel')
-    endLabel.textContent = 'Please select an option before ending turn!'
-    return
-  }
-
   const playerOneCard = document.querySelector('.playerOneCard')
   playerOneCard.style.display = 'flex'
 
   const gameButtons = document.querySelector('.gameButtons')
   gameButtons.style.display = 'flex'
   gameButtons.style.justifyContent = 'space-around'
+
+  if (playerTwoChoice === '') {
+    const endLabel = document.querySelector('.gameEndLabel')
+    endLabel.textContent = 'You must pick before ending turn!'
+    return
+  }
 
   if (playerOneChoice === playerTwoChoice) {
     const draw = document.querySelector('.letsPlay h2')
@@ -88,7 +100,14 @@ function handleEndButtonPlayerTwo(event) {
   if (
     (playerOneChoice === 'rock' && playerTwoChoice === 'scissor') ||
     (playerOneChoice === 'scissor' && playerTwoChoice === 'paper') ||
-    (playerOneChoice === 'paper' && playerTwoChoice === 'rock')
+    (playerOneChoice === 'paper' && playerTwoChoice === 'rock') ||
+    (playerOneChoice === 'spock' && playerTwoChoice === 'scissor') ||
+    (playerOneChoice === 'spock' && playerTwoChoice === 'rock') ||
+    (playerOneChoice === 'lizard' && playerTwoChoice === 'spock') ||
+    (playerOneChoice === 'paper' && playerTwoChoice === 'spock') ||
+    (playerOneChoice === 'rock' && playerTwoChoice === 'lizard') ||
+    (playerOneChoice === 'scissor' && playerTwoChoice === 'lizard') ||
+    (playerOneChoice === 'lizard' && playerTwoChoice === 'paper')
   ) {
     const playerOneWin = document.querySelector('.playerOneScore')
     playerOne++
@@ -104,20 +123,21 @@ function handleEndButtonPlayerTwo(event) {
   }
 }
 
-function startTheGame(event) {
-  const playerTwoCard = document.querySelector('.playerTwoCard')
+function handleStartTheGame(event) {
+  const playerTwoCard = document.querySelector(' .playerTwoCard')
   playerTwoCard.style.display = 'none'
 
-  const displayGame = document.querySelector('.letsPlay h2')
-  displayGame.textContent = 'Rock, Paper... JUST GO!'
+  const startGameButton = document.querySelector('.gameButtons')
+  startGameButton.style.display = 'none'
 }
 
-function endTheGame(event) {
+function handleEndTheGame(event) {
   const valueCountPlayer1 = document.querySelector('.playerOneScore')
-  const valueCountPlayer2 = document.querySelector('.playerTwoScore')
   playerOne = 0
-  playerTwo = 0
   valueCountPlayer1.textContent = `${playerOne}`
+
+  const valueCountPlayer2 = document.querySelector('.playerTwoScore')
+  playerTwo = 0
   valueCountPlayer2.textContent = `${playerTwo}`
 }
 
@@ -153,9 +173,10 @@ const main = () => {
   buttonPlayerTwo.addEventListener('click', handleEndButtonPlayerTwo)
 
   const startGame = document.querySelector('.gameButtons')
-  startGame.addEventListener('click', startTheGame)
+  startGame.addEventListener('click', handleStartTheGame)
 
   const endGame = document.querySelector('.gameButtons')
-  endGame.addEventListener('click', endTheGame)
+  endGame.addEventListener('click', handleEndTheGame)
 }
+
 document.addEventListener('DOMContentLoaded', main)
