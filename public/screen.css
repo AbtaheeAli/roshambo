@@ -19,7 +19,7 @@ header {
   justify-content: center;
   align-items: center;
   background-image: url('https://as1.ftcdn.net/jpg/01/15/57/50/500_F_115575013_bGdWptTXmcWnYIYT3W9JyDWi4mTQHyGj.jpg');
-  border-radius: 0 0 50% 50%;
+  border-radius: 0 0 100% 100%;
   box-shadow: #66c3ff 3px 3px;
 }
 
@@ -48,13 +48,15 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .player1 {
-  padding-left: 8rem;
+  padding-left: 12rem;
 }
 
 .player2 {
-  padding-right: 8rem;
+  padding-right: 12rem;
 }
+
 article {
   display: flex;
   flex-direction: column;

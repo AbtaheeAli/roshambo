@@ -28,6 +28,21 @@ function handlePlayerOneLizardSelection(event) {
     'https://rpsls.net/images/lizard.png'
 }
 
+function handlePlayerTwoRockSelection(event) {
+  document.querySelector('.playerTwoChoice .blankImage').src =
+    'https://rpsls.net/images/rock.png'
+}
+
+function handlePlayerTwoPaperSelection(event) {
+  document.querySelector('.playerTwoChoice .blankImage').src =
+    'https://rpsls.net/images/paper.png'
+}
+
+function handlePlayerTwoScissorSelection(event) {
+  document.querySelector('.playerTwoChoice .blankImage').src =
+    'https://rpsls.net/images/scissors.png'
+}
+
 function endButton(event) {
   const playerOneHidden = document.querySelector('.playerOneChoice')
   playerOneHidden.style.display = 'none'
@@ -48,6 +63,15 @@ const main = () => {
 
   const playerOneLizard = document.querySelector('.playerOneChoice .lizard')
   playerOneLizard.addEventListener('click', handlePlayerOneLizardSelection)
+
+  const playerTwoRock = document.querySelector('.playerTwoChoice .rock')
+  playerTwoRock.addEventListener('click', handlePlayerTwoRockSelection)
+
+  const playerTwoPaper = document.querySelector('.playerTwoChoice .paper')
+  playerTwoPaper.addEventListener('click', handlePlayerTwoPaperSelection)
+
+  const playerTwoScissor = document.querySelector('.playerTwoChoice .scissor')
+  playerTwoScissor.addEventListener('click', handlePlayerTwoScissorSelection)
 
   const button = document.querySelector('.endButton button')
   button.addEventListener('click', endButton)
