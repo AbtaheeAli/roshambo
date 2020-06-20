@@ -52,6 +52,12 @@ function handlePlayerTwoScissorSelection(event) {
 }
 
 function handleEndButtonPlayerOne(event) {
+  if (playerOneChoice === '') {
+    const endLabel = document.querySelector('.gameEndLabel')
+    endLabel.textContent = 'Please select an option before ending turn!'
+    return
+  }
+
   const playerOneHidden = document.querySelector('.playerOneCard')
   playerOneHidden.style.display = 'none'
 
@@ -60,6 +66,12 @@ function handleEndButtonPlayerOne(event) {
 }
 
 function handleEndButtonPlayerTwo(event) {
+  if (playerTwoChoice === '') {
+    const endLabel = document.querySelector('.gameEndLabel')
+    endLabel.textContent = 'Please select an option before ending turn!'
+    return
+  }
+
   const playerOneCard = document.querySelector('.playerOneCard')
   playerOneCard.style.display = 'flex'
 
