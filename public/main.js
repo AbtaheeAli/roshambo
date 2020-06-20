@@ -51,14 +51,21 @@ function handlePlayerTwoScissorSelection(event) {
   playerTwoChoice = 'scissor'
 }
 
-function endButtonPlayerOne(event) {
+function handleEndButtonPlayerOne(event) {
   const playerOneHidden = document.querySelector('.playerOneCard')
   playerOneHidden.style.display = 'none'
+
+  const playerTwoCard = document.querySelector('.playerTwoCard')
+  playerTwoCard.style.display = 'flex'
 }
 
-function endButtonPlayerTwo(event) {
+function handleEndButtonPlayerTwo(event) {
   const playerOneCard = document.querySelector('.playerOneCard')
   playerOneCard.style.display = 'flex'
+
+  const gameButtons = document.querySelector('.gameButtons')
+  gameButtons.style.display = 'flex'
+  gameButtons.style.justifyContent = 'space-around'
 
   if (playerOneChoice === playerTwoChoice) {
     const draw = document.querySelector('.letsPlay h2')
@@ -83,6 +90,25 @@ function endButtonPlayerTwo(event) {
     const displayWinner = document.querySelector('.letsPlay h2')
     displayWinner.textContent = 'Player Two Wins! Go Again'
   }
+}
+
+function startTheGame(event) {
+  const playerOneCard = document.querySelector('.playerTwoCard')
+  playerOneCard.style.display = 'none'
+
+  const displayGame = document.querySelector('.letsPlay h2')
+  displayGame.textContent = 'Rock, Paper... JUST GO!'
+}
+
+function endGame(event) {
+  const valueCountTeam1 = document.querySelector('.playerOneScore')
+  const valueCountTeam2 = document.querySelector('.TwoScore')
+  const header = document.querySelector('h1')
+  header.textContent = 'My Score Board'
+  teamOne = 0
+  teamTwo = 0
+  valueCountTeam1.textContent = `${teamOne}`
+  valueCountTeam2.textContent = `${teamTwo}`
 }
 
 const main = () => {
@@ -111,9 +137,15 @@ const main = () => {
   playerTwoScissor.addEventListener('click', handlePlayerTwoScissorSelection)
 
   const buttonPlayerOne = document.querySelector('.endButtonPlayerOne button')
-  buttonPlayerOne.addEventListener('click', endButtonPlayerOne)
+  buttonPlayerOne.addEventListener('click', handleEndButtonPlayerOne)
 
   const buttonPlayerTwo = document.querySelector('.endButtonPlayerTwo button')
-  buttonPlayerTwo.addEventListener('click', endButtonPlayerTwo)
+  buttonPlayerTwo.addEventListener('click', handleEndButtonPlayerTwo)
+
+  const startGame = document.querySelector('.gameButtons')
+  startGame.addEventListener('click', startTheGame)
+
+  const endGame = document.querySelector('.gameButtons')
+  endGame.addEventListener('click', endTheGame)
 }
 document.addEventListener('DOMContentLoaded', main)

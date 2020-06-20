@@ -38,6 +38,11 @@ section {
   justify-content: space-around;
 }
 
+div {
+  display: flex;
+  justify-content: space-around;
+}
+
 .scoreboard {
   padding-top: 1.5rem;
   font-family: 'Indie Flower', cursive;
@@ -69,12 +74,27 @@ h2 {
 }
 
 .endButtonPlayerOne button {
-  background-color: red;
-  color: black;
+  background-color: #03045e;
+  color: white;
 }
 
 .endButtonPlayerTwo button {
-  color: #03045e;
+  background-color: #03045e;
+  color: white;
+}
+
+.start button {
+  background-color: #03045e;
+  color: white;
+}
+
+.endGame button {
+  background-color: #03045e;
+  color: white;
+}
+
+section h2 {
+  padding-top: 2rem;
 }
 
 fieldset {
