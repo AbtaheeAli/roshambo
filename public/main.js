@@ -66,7 +66,7 @@ function handlePlayerTwoLizardSelection(event) {
 function handleEndButtonPlayerOne(event) {
   if (playerOneChoice === '') {
     const endLabel = document.querySelector('.label')
-    endLabel.textContent = 'You must pick before ending turn!'
+    endLabel.textContent = 'You must pick before ending your turn!'
     return
   }
 
@@ -87,7 +87,7 @@ function handleEndButtonPlayerTwo(event) {
 
   if (playerTwoChoice === '') {
     const endLabel = document.querySelector('.label')
-    endLabel.textContent = 'You must pick before ending turn!'
+    endLabel.textContent = 'You must pick before ending your turn!'
     return
   }
 
@@ -113,13 +113,13 @@ function handleEndButtonPlayerTwo(event) {
     playerOne++
     playerOneWin.textContent = `${playerOne}`
     const displayWinner = document.querySelector('.label')
-    displayWinner.textContent = 'Player One Wins! Go Again'
+    displayWinner.textContent = 'Player One Wins!'
   } else {
     const playerTwoWin = document.querySelector('.playerTwoScore')
     playerTwo++
     playerTwoWin.textContent = `${playerTwo}`
     const displayWinner = document.querySelector('.label')
-    displayWinner.textContent = 'Player Two Wins! Go Again'
+    displayWinner.textContent = 'Player Two Wins!'
   }
 }
 
